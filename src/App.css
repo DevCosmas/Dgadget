@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* styles.css or a similar stylesheet */
+@keyframes moveImage {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(20px, 20px); /* Adjust the values as needed */
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.animated-image {
+  animation: moveImage 2s infinite; /* Adjust duration and iteration count */
+}
