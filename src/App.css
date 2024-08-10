@@ -2,13 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-/* styles.css or a similar stylesheet */
 @keyframes moveImage {
   0% {
     transform: translate(0, 0);
   }
   50% {
-    transform: translate(20px, 20px); /* Adjust the values as needed */
+    transform: translate(20px, 20px);
   }
   100% {
     transform: translate(0, 0);
@@ -16,5 +15,119 @@
 }
 
 .animated-image {
-  animation: moveImage 2s infinite; /* Adjust duration and iteration count */
+  animation: moveImage 2s infinite;
+}
+
+.flip-container {
+  position: relative;
+  min-height: 300px;
+  min-width: 300px;
+  perspective: 1000px;
+  overflow: hidden;
+}
+
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: 0.5s ease-in-out;
+}
+
+.flip-container:hover .flip-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-front,
+.flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-front {
+  display: flex;
+
+  padding: 20px;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+  z-index: 2;
+}
+.flip-back {
+  color: #fff;
+  display: flex;
+
+  align-items: center;
+
+  transform: rotateY(180deg);
+  z-index: 1;
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.water-ring-button {
+  z-index: 9;
+  transform: all ease 0.5s;
+  min-width: 180px;
+  border-radius: 100px;
+  position: relative;
+  text-align: center;
+}
+.water-ring-button::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  transform: scale(1, 1);
+
+  z-index: -1;
+  opacity: 0.4;
+  transition: all ease 0.5s;
+  border-radius: 100px;
+}
+.water-ring-button:hover:before {
+  animation: rippleBefore 2s linear 0s infinite;
+  background-color: #fff;
+  color: #000;
+}
+
+@keyframes rippleBefore {
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
+.water-ring-button::after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  transform: scale(1, 1);
+
+  z-index: -1;
+  opacity: 0.2;
+  transition: all ease 0.5s;
+  border-radius: 100px;
+}
+.water-ring-button:hover:after {
+  animation: rippleAfter 2s linear 0s infinite;
+  background-color: #fff;
+  color: #000;
+}
+
+@keyframes rippleAfter {
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
 }

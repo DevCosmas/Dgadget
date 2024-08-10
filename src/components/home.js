@@ -1,4 +1,5 @@
 import Category from './category';
+import Footer from './footer';
 import HeroSection from './hero-section';
 import MainSection from './main';
 import Navigation from './navigation';
@@ -10,6 +11,7 @@ export default function HomeComp() {
       <HeroSection />
       <Category />
       <MainSection />
+      <Footer />
     </div>
   );
 }
