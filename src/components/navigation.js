@@ -20,7 +20,7 @@ export default function Navigation() {
   }
 
   return (
-    <nav className="flex sticky z-50 top-0 left-0 bottom-0 right-0 bg-white text-lg px-6 py-4 justify-between items-center">
+    <nav className="flex sticky border-b-4 border-orange-600 z-50 top-0 left-0 bottom-0 right-0 bg-white text-lg px-6 py-4 justify-between items-center">
       <div className="flex text-lg px-6 py-2 lg:gap-8 md:gap-6 sm:gap-4 gap-2 capitalize items-center">
         <Logo />
         <Link
@@ -55,7 +55,7 @@ export default function Navigation() {
           to="/login">
           Login
         </Link>
-        <TbZoom />
+        {/* <TbZoom /> */}
         <TbShoppingBag />
         <span
           onClick={() => handleOpenMenu()}
