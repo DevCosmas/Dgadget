@@ -3,10 +3,13 @@ import { Link, useLocation } from 'react-router-dom';
 import { TbZoom, TbShoppingBag } from 'react-icons/tb';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { useState } from 'react';
+import { useCart } from '../context/cart';
 
 export default function Navigation() {
   const location = useLocation();
   const [isOpenMenu, setIsOpenMenu] = useState(false);
+  const { get_items } = useCart();
+  const cartLength = get_items().length;
 
   function handleOpenMenu() {
     setIsOpenMenu(!isOpenMenu);
@@ -56,7 +59,16 @@ export default function Navigation() {
           Login
         </Link>
         {/* <TbZoom /> */}
-        <TbShoppingBag />
+        <Link
+          className={`text-lg relative sm:block hidden ${activeLink('cart')}`}
+          to="/cart">
+          <TbShoppingBag className="text-xl" />
+          {cartLength > 0 && (
+            <div className="absolute -top-2 -right-2 bg-red-600 text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">
+              {cartLength}
+            </div>
+          )}
+        </Link>
         <span
           onClick={() => handleOpenMenu()}
           className="cursor-pointer px-6 md:hidden">

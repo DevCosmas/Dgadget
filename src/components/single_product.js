@@ -237,9 +237,9 @@ import { useState } from 'react';
 //   );
 // }
 
-export default function SingleProductcomp({ product, close }) {
+export default function SingleProductcomp({ product, close, add_to_cart }) {
   const [qty, setQty] = useState(1);
-  const { add_to_cart } = useCart();
+  // const { add_to_cart } = useCart();
   return (
     <>
       <div className="fixed inset-0 bg-black bg-opacity-50 z-40"></div>

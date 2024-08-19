@@ -4,13 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { CartProvider } from './context/cart';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <CartProvider>
-      <App />
-    </CartProvider>
+    <GoogleOAuthProvider clientId={process.env.GOOGLE_CLIENT_ID}>
+      <CartProvider>
+        <App />
+      </CartProvider>
+    </GoogleOAuthProvider>
   </React.StrictMode>
 );
 
