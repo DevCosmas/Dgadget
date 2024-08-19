@@ -2,14 +2,14 @@ import React from 'react';
 import { Navigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 
-const ProtectedAdminRoute = ({ children }) => {
-  const token = Cookies.get('adminToken');
+const ProtectedRoute = ({ children }) => {
+  const token = Cookies.get('token');
 
   if (!token) {
-    return <Navigate to="/admin/login" />;
+    return <Navigate to="/login" />;
   }
 
   return children;
 };
 
-export default ProtectedAdminRoute;
+export default ProtectedRoute;

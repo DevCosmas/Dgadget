@@ -8,6 +8,7 @@ import LoginPage from './auth/login';
 import SignUpPage from './auth/signup';
 import NotFoundPage from './pages/404';
 import Loader from './components/loader';
+import ProtectedRoute from './pages/protected';
 
 function App() {
   const [loading, setLoading] = useState(true);
