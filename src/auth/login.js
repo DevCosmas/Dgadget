@@ -6,20 +6,17 @@ const LoginPage = () => {
   const navigate = useNavigate();
 
   const handleGoogleSuccess = (response) => {
-    // Handle Google OAuth success
     console.log('Google login success:', response);
-    // Redirect or perform other actions
   };
 
   const handleGoogleFailure = (response) => {
-    // Handle Google OAuth failure
     console.error('Google login failed:', response);
   };
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // Handle login logic here
-    navigate('/shop'); // Redirect to dashboard after login
+
+    navigate('/shop');
   };
 
   return (
@@ -63,7 +60,7 @@ const LoginPage = () => {
         </form>
         <div className="text-center mb-4">or</div>
         <GoogleLogin
-          clientId="366480223374-u4rtm4q42p7pi6513n6fvs34i9sull5a.apps.googleusercontent.com"
+          clientId={process.env.GOOGLE_CLIENT_ID}
           buttonText="Continue with Google"
           onSuccess={handleGoogleSuccess}
           onFailure={handleGoogleFailure}

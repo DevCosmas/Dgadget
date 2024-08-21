@@ -63,7 +63,7 @@ const SignUpPage = () => {
         </form>
         <div className="text-center mb-4">or</div>
         <GoogleLogin
-          clientId="366480223374-u4rtm4q42p7pi6513n6fvs34i9sull5a.apps.googleusercontent.com"
+          clientId={process.env.GOOGLE_CLIENT_ID}
           buttonText="Continue with Google"
           onSuccess={handleGoogleSuccess}
           onFailure={handleGoogleFailure}
