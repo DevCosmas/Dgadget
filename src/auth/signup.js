@@ -6,20 +6,17 @@ const SignUpPage = () => {
   const navigate = useNavigate();
 
   const handleGoogleSuccess = (response) => {
-    // Handle Google OAuth success
     console.log('Google login success:', response);
-    // Redirect or perform other actions
   };
 
   const handleGoogleFailure = (response) => {
-    // Handle Google OAuth failure
     console.error('Google login failed:', response);
   };
 
   const handleSignUp = (e) => {
     e.preventDefault();
-    // Handle sign-up logic here
-    navigate('/shop'); // Redirect to dashboard after sign-up
+
+    navigate('/shop');
   };
 
   return (
